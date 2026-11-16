@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <div class="sun"></div>
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+  <div class="hill hill-back"></div>
+  <div class="hill hill-front"></div>
+
+  <main class="stage">
+    <div class="clock" id="clock"></div>
+    <div class="date" id="date"></div>
+
+    <form class="search glass" action="https://search.brave.com/search" method="get">
+      <input name="q" type="search" placeholder="Search Brave" autocomplete="off" autofocus>
+      <button class="go" type="submit" aria-label="Search"></button>
+    </form>
+
+    <nav class="launch" id="launch" aria-label="Quick launch">
+      <a class="tile" href="https://www.youtube.com">
+        <span class="orb red">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="6" y="12" width="36" height="24" rx="7" fill="#fff"/>
+            <polygon points="20,18 20,30 31,24" fill="#e62117"/>
+          </svg>
+        </span>
+        <span class="name">YouTube</span>
+      </a>
+      <a class="tile" href="https://www.reddit.com">
+        <span class="orb orange">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <ellipse cx="24" cy="29" rx="14" ry="10" fill="#fff"/>
+            <circle cx="10" cy="23" r="4" fill="#fff"/>
+            <circle cx="38" cy="23" r="4" fill="#fff"/>
+            <circle cx="18" cy="28" r="2.6" fill="#ff4500"/>
+            <circle cx="30" cy="28" r="2.6" fill="#ff4500"/>
+            <path d="M18.5 34c3.4 2.6 7.6 2.6 11 0" stroke="#ff4500" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M24 19l2-9 7 2" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="35" cy="12" r="3" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="name">Reddit</span>
+      </a>
+    </nav>
+  </main>
+
+  <button class="gear glass" id="gear" type="button" aria-label="Settings" aria-expanded="false" aria-controls="panel"><img src="gear.png" alt="" width="24" height="24" draggable="false"></button>
+  <section class="panel glass" id="panel" hidden aria-label="Settings">
+    <h2>Settings</h2>
+    <div class="row">
+      <span id="waterLabel">Water touch effect</span>
+      <button class="switch" id="water" type="button" role="switch" aria-checked="true" aria-labelledby="waterLabel"></button>
+    </div>
+    <div class="row">
+      <span id="bubblesLabel">Floating bubbles</span>
+      <button class="switch" id="bubblesToggle" type="button" role="switch" aria-checked="true" aria-labelledby="bubblesLabel"></button>
+    </div>
+    <strong>Change the wallpaper</strong>
+    <p>Pick any image from your computer.</p>
+    <div class="actions">
+      <button class="btn" id="pick" type="button">Choose image</button>
+      <button class="btn ghost" id="reset" type="button">Use default</button>
+    </div>
+    <p class="note" id="note" role="status"></p>
+    <div class="section">
+      <strong>Add a quick launch</strong>
+      <p>Paste a link and it shows up on your homepage.</p>
+      <form id="linkForm" class="linkform" autocomplete="off">
+        <input id="linkUrl" type="text" inputmode="url" placeholder="example.com" aria-label="Website link" required>
+        <input id="linkName" type="text" placeholder="Name (optional)" aria-label="Name" maxlength="20">
+        <button class="btn" type="submit">Add</button>
+      </form>
+      <ul class="mylinks" id="myLinks"></ul>
+      <p class="note" id="linkNote" role="status"></p>
+      <div class="row last">
+        <span id="iconsLabel">Website icons</span>
+        <button class="switch" id="icons" type="button" role="switch" aria-checked="true" aria-labelledby="iconsLabel"></button>
+      </div>
+      <p class="hint">Fetched from an online icon service. Turn off to keep this page fully offline.</p>
+    </div>
+    <input type="file" id="file" accept="image/*" hidden>
+  </section>
+
+  <button class="mute glass" id="mute" type="button"></button>
+
+  <div class="ripples" id="ripples" aria-hidden="true"></div>
+  <script src="newtab.js"></script>
+</body>
+</html>

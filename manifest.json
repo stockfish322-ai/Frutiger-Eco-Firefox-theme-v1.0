@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "My CSS Injector + Eco Home",
+  "version": "1.1",
+  "description": "Write custom CSS per website, plus a Frutiger Eco new tab page.",
+  "permissions": ["storage", "activeTab"],
+  "action": { "default_popup": "popup.html" },
+  "chrome_url_overrides": { "newtab": "newtab.html" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
